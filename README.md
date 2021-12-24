@@ -1,7 +1,12 @@
-Thinpad 模板工程
----------------
+# OrdinaryRISCV
 
-工程包含示例代码和所有引脚约束，可以直接编译。
+A naive CPU implementation of 5-stage RISC-V pipeline, supporting basic functions of exception and interruption, page table, TLB and VGA output.
 
-代码中包含中文注释，编码为utf-8，在Windows版Vivado下可能出现乱码问题。  
-请用别的代码编辑器打开文件，并将编码改为GBK。
+*Computer Organization* course project, 2021 Fall at THU.
+
+Contributors: [Co1lin](https://github.com/Co1lin), [tz039e](https://github.com/tz039e), [ThonyPan](https://github.com/ThonyPan)
+
+Copied from Tsinghua GitLab. Considering privacy issues, commit records are removed.
+
+Report and demo will be uploaded soon.
+
