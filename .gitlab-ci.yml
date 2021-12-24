@@ -1,0 +1,33 @@
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+  PROJ_NAME: "thinpad_top"
+  XPR_PATH: $PROJ_NAME/$PROJ_NAME.xpr
+  RUNS_PATH: $PROJ_NAME/$PROJ_NAME.runs
+
+stages:
+  - build
+
+bitstream:
+  stage: build
+  image: vivado:2019.2
+  tags:
+    - cod20-ci-runner
+  script:
+    - env
+    - echo $XPR_PATH
+    - /opt/Xilinx/Vivado/2019.2/bin/vivado -mode tcl -source .ci-scripts/bits.tcl $XPR_PATH
+    - python3 ./.ci-scripts/run-linter.py $XPR_PATH 2>linter.log
+    - test -f $RUNS_PATH/impl_1/*.bit
+
+  artifacts:
+    name: "$CI_JOB_NAME-$CI_COMMIT_REF_NAME"
+    when: always
+    paths:
+      - $RUNS_PATH/impl_1/*.bit
+      - $RUNS_PATH/*/runme.log
+      - linter.log
+  only:
+    - master
+    - dev
+    - page-table
+    - page_vga

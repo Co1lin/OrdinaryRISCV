@@ -1,0 +1,17 @@
+.vscode/
+
+**/*.cache/
+**/*.hw/
+**/*.runs/
+*.jou
+*.log
+*.dcp
+/.lint/
+**/.Xil
+**/.Xilinx
+**/.DS_Store
+**/*.sim/
+*.str
+**/*.wcfg
+**/tb.sv
+wave.*
